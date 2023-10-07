@@ -1,0 +1,28 @@
+<tr>
+    <th>SL No</th>
+    <th>Title</th>
+    <th>ID</th>
+    <th>Author</th>
+    <th>Year</th>
+    <th>Journal</th>
+    <th>DOI</th>
+    <th>LitmapsId</th>   
+    <th>Actions</th>
+</tr>
+{% for book in books %}
+
+<tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.ID }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.year }}</td>
+    <td>{{ book.journal }}</td>
+    <td>{{ book.doi }}</td>
+    <td>{{ book.litmapsid }}</td>
+    <td>
+        <a href="/edit/{{ book.doc_id }}">Edit</a>
+        <a href="/delete/{{ book.doc_id }}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+    </td>
+</tr>
+{% endfor %}
